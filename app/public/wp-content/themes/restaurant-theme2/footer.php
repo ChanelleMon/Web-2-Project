@@ -22,38 +22,33 @@
           <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Recent Blog</h2>
+              <?php
+                  $homepagePosts = new WP_Query(array(
+                    'posts_per_page' => 2
+                  ));
+                  while($homepagePosts->have_posts()){ // tied to the default query used on the url
+                  $homepagePosts->the_post();?>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(<?php echo get_theme_file_uri('images/image_1.jpg') ?>);"></a>
+                <a class="blog-img mr-4" style="background-image: url(<?php the_post_thumbnail_url('menusLandscape'); ?>);"></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <h3 class="heading"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-calendar"></span> <?php the_time('M j, Y') ?></a></div>
+                    <div><a href="#"><span class="icon-person"></span> <?php the_author_posts_link(); ?></a></div>
                     <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                   </div>
                 </div>
               </div>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(<?php echo get_theme_file_uri('images/image_2.jpg') ?>);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
+              <?php } ?>
+              
             </div>
           </div>
           <div class="col-lg-2 col-md-6 mb-5 mb-md-5">
              <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Services</h2>
+              <h2 class="ftco-heading-2">Reviews</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Cooked</a></li>
-                <li><a href="#" class="py-2 d-block">Deliver</a></li>
-                <li><a href="#" class="py-2 d-block">Quality Foods</a></li>
-                <li><a href="#" class="py-2 d-block">Mixed</a></li>
+                <li><a href="<?php echo site_url('/reviews')?>" class="py-2 d-block">Post a review</a></li>
+                <li><a href="<?php echo site_url('/reviews')?>" class="py-2 d-block">Read some reviews</a></li>
               </ul>
             </div>
           </div>

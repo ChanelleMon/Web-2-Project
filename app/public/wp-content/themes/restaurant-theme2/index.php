@@ -27,105 +27,41 @@
   <div class="row justify-content-center mb-5 pb-3">
 	<div class="col-md-7 heading-section ftco-animate text-center">
 	  <h2 class="mb-4">Read our blog</h2>
-	  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	  <p>Keep up to date with everything that we do!</p>
 	</div>
   </div>
   <div class="row d-flex">
-	<div class="col-md-4 d-flex ftco-animate">
+	   <!-- DISPLAY MENUS POST TYPES -->
+	   <?php
+			while(have_posts()){
+				the_post();?>
+					<div class="col-md-4 d-flex ftco-animate">
 		<div class="blog-entry align-self-stretch">
-		<a href="blog-single.html" class="block-20" style="background-image: url(<?php echo get_theme_file_uri('images/image_1.jpg'); ?>);">
+		<a href="<?php the_permalink();?>" class="block-20" style="background-image: url(<?php the_post_thumbnail_url('menusLandscape'); ?>);">
 		</a>
 		<div class="text py-4 d-block">
 			<div class="meta">
-			<div><a href="#">Sept 10, 2018</a></div>
-			<div><a href="#">Admin</a></div>
+			<div><a href="#"><?php the_time('M j, Y') ?></a></div>
+			<div><a href="#"><?php the_author_posts_link(); ?></a></div>
+			<div><a href="#"><?php echo get_the_category_list(', ') ?></a></div>
 			<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
 		  </div>
-		  <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-		  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		  <h3 class="heading mt-2"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h3>
+		  <p><?php echo wp_trim_words(get_the_content(),18); ?></p>
 		</div>
 	  </div>
 	</div>
-	<div class="col-md-4 d-flex ftco-animate">
-		<div class="blog-entry align-self-stretch">
-		<a href="blog-single.html" class="block-20" style="background-image: url(<?php echo get_theme_file_uri('images/image_2.jpg'); ?>);">
-		</a>
-		<div class="text py-4 d-block">
-			<div class="meta">
-			<div><a href="#">Sept 10, 2018</a></div>
-			<div><a href="#">Admin</a></div>
-			<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		  </div>
-		  <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-		  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		</div>
-	  </div>
-	</div>
-	<div class="col-md-4 d-flex ftco-animate">
-		<div class="blog-entry align-self-stretch">
-		<a href="blog-single.html" class="block-20" style="background-image: url(<?php echo get_theme_file_uri('images/image_3.jpg'); ?>);">
-		</a>
-		<div class="text py-4 d-block">
-			<div class="meta">
-			<div><a href="#">Sept 10, 2018</a></div>
-			<div><a href="#">Admin</a></div>
-			<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		  </div>
-		  <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-		  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		</div>
-	  </div>
-	</div>
-	<div class="col-md-4 d-flex ftco-animate">
-		<div class="blog-entry align-self-stretch">
-		<a href="blog-single.html" class="block-20" style="background-image: url(<?php echo get_theme_file_uri('images/image_4.jpg'); ?>);">
-		</a>
-		<div class="text py-4 d-block">
-			<div class="meta">
-			<div><a href="#">Sept 10, 2018</a></div>
-			<div><a href="#">Admin</a></div>
-			<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		  </div>
-		  <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-		  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		</div>
-	  </div>
-	</div>
-	<div class="col-md-4 d-flex ftco-animate">
-		<div class="blog-entry align-self-stretch">
-		<a href="blog-single.html" class="block-20" style="background-image: url(<?php echo get_theme_file_uri('images/image_5.jpg'); ?>);">
-		</a>
-		<div class="text py-4 d-block">
-			<div class="meta">
-			<div><a href="#">Sept 10, 2018</a></div>
-			<div><a href="#">Admin</a></div>
-			<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		  </div>
-		  <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-		  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		</div>
-	  </div>
-	</div>
-	<div class="col-md-4 d-flex ftco-animate">
-		<div class="blog-entry align-self-stretch">
-		<a href="blog-single.html" class="block-20" style="background-image: url(<?php echo get_theme_file_uri('images/image_6.jpg'); ?>);">
-		</a>
-		<div class="text py-4 d-block">
-			<div class="meta">
-			<div><a href="#">Sept 10, 2018</a></div>
-			<div><a href="#">Admin</a></div>
-			<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		  </div>
-		  <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-		  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		</div>
-	  </div>
-	</div>
+							<?php }
+						?> 
+
+	
+</div>
   </div>
   <div class="row mt-5">
 	<div class="col text-center">
 	  <div class="block-27">
-		<ul>
+		  <?php echo paginate_links(); ?>
+		<!-- <ul>
 		  <li><a href="#">&lt;</a></li>
 		  <li class="active"><span>1</span></li>
 		  <li><a href="#">2</a></li>
@@ -133,11 +69,11 @@
 		  <li><a href="#">4</a></li>
 		  <li><a href="#">5</a></li>
 		  <li><a href="#">&gt;</a></li>
-		</ul>
+		</ul></div>-->
 	  </div>
 	</div>
   </div>
-</div>
+
 </section>
 
 	<?php get_footer();?>

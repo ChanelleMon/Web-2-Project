@@ -16,7 +16,7 @@
 	          <li class="nav-item active"><a href="<?php echo site_url() ?>" class="nav-link">Home</a></li>
 			  <li class="nav-item"> <a href="<?php echo site_url('/menu')?>" class="nav-link">Menu</a>
 			  <li class="nav-item"> <a href="<?php echo site_url('/deals')?>" class="nav-link">Deals</a>
-			  <li class="nav-item"> <a href="<?php echo site_url('/services')?>" class="nav-link">Services</a>
+			  <li class="nav-item"> <a href="<?php echo site_url('/reviews')?>" class="nav-link">Reviews</a>
 			  <li class="nav-item"> <a href="<?php echo site_url('/blog')?>" class="nav-link">Blog</a>
 			  <li class="nav-item"> <a href="<?php echo site_url('/about')?>" class="nav-link">About</a>
 			  <li class="nav-item"> <a href="<?php echo site_url('/contact')?>" class="nav-link">Contact</a>

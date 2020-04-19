@@ -31,183 +31,87 @@
           </div>
         </div>
     	</div>
+    	<!-- PIZZA GRID -->
     	<div class="container-wrap">
     		<div class="row no-gutters d-flex">
-    			<div class="col-lg-4 d-flex ftco-animate">
-    				<div class="services-wrap d-flex">
-    					<a href="#" class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-1.jpg') ?>);"></a>
-    					<div class="text p-4">
-    						<h3>Italian Pizza</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-lg-4 d-flex ftco-animate">
-    				<div class="services-wrap d-flex">
-    					<a href="#" class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-2.jpg') ?>);"></a>
-    					<div class="text p-4">
-    						<h3>Greek Pizza</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-lg-4 d-flex ftco-animate">
-    				<div class="services-wrap d-flex">
-    					<a href="#" class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-3.jpg') ?>);"></a>
-    					<div class="text p-4">
-    						<h3>Caucasian Pizza</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-    					</div>
-    				</div>
-    			</div>
+						<!-- DISPLAY MENUS POST TYPES -->
+						<?php
+							$homepageEvents = new WP_Query(array(
+								'posts_per_page' => 6,
+								'post_type' => 'menus',
+								/*'meta_key' => 'price',
+ 								'orderby' => 'meta_value_num',*/
+								'orderby' => 'title',
+								'order' => 'ASC'
 
-    			<div class="col-lg-4 d-flex ftco-animate">
-    				<div class="services-wrap d-flex">
-    					<a href="#" class="img order-lg-last" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-4.jpg') ?>);"></a>
-    					<div class="text p-4">
-    						<h3>American Pizza</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-lg-4 d-flex ftco-animate">
-    				<div class="services-wrap d-flex">
-    					<a href="#" class="img order-lg-last" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-5.jpg') ?>);"></a>
-    					<div class="text p-4">
-    						<h3>Tomatoe Pie</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-lg-4 d-flex ftco-animate">
-    				<div class="services-wrap d-flex">
-    					<a href="#" class="img order-lg-last" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-6.jpg') ?>);"></a>
-    					<div class="text p-4">
-    						<h3>Margherita</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
-    					</div>
-    				</div>
-    			</div>
+							));
+							while($homepageEvents->have_posts()){
+								$homepageEvents->the_post();?>
+							<div class="col-lg-4 d-flex ftco-animate">
+								<div class="services-wrap d-flex">
+									<a href="<?php the_permalink();?>" class="img" style="background-image: url(<?php the_post_thumbnail_url('menusLandscape'); ?>);"></a> <!--style="background-image: url(<?php echo get_theme_file_uri('images/pizza-1.jpg') ?>);"-->
+									<div class="text p-4">
+										<h3><a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h3>
+										<p><?php echo wp_trim_words(get_the_content(),18); ?></p>
+										<p class="price"><span>$<?php the_field('price');?></span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+									</div>
+								</div>
+							</div>
+							<?php }
+						?> 
     		</div>
     	</div>
 
+		
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
             <h2 class="mb-4">Our Menu Pricing</h2>
             <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-            <p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <p class="mt-5">Check out our affordable prices.</p>
           </div>
-        </div>
-        <div class="row">
+		</div>
+		<div class="row">
         	<div class="col-md-6">
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-1.jpg') ?>);"></div>
+		<!-- DISPLAY MENUS POST TYPES FOR PRICING -->
+		<?php
+			$count = 0;
+			$homepageEvents = new WP_Query(array(
+				'posts_per_page' => 8,
+				'post_type' => 'menus',
+				'meta_key' => 'price',
+				'orderby' => 'meta_value_num',
+				'order' => 'ASC'
+
+			));
+			while($homepageEvents->have_posts()){
+				$homepageEvents->the_post();
+				$count = $count + 1; ?>
+				<?php 
+					if($count == 5)
+						echo '<div class="col-md-6">';
+				?>      
+				<div class="pricing-entry d-flex ftco-animate">
+        			<div class="img" style="background-image: url(<?php the_post_thumbnail_url('menusLandscape'); ?>);"></div>
         			<div class="desc pl-3">
 	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Italian Pizza</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span><?php the_title(); ?></span></h3>
+	        				<span class="price">$<?php the_field('price');?></span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p><?php echo wp_trim_words(get_the_content(),18); ?></p>
 	        			</div>
         			</div>
-        		</div>
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-2.jpg') ?>);"></div>
-        			<div class="desc pl-3">
-	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Hawaiian Pizza</span></h3>
-	        				<span class="price">$29.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-	        		</div>
-        		</div>
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-3.jpg') ?>);"></div>
-        			<div class="desc pl-3">
-	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Greek Pizza</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-	        		</div>
-        		</div>
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-4.jpg') ?>);"></div>
-        			<div class="desc pl-3">
-	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Bacon Crispy Thins</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-	        		</div>
-        		</div>
+				</div>
+				
+			<?php 
+				if($count == 4)
+					echo '</div>';
+			}
+			?>       
         	</div>
 
-        	<div class="col-md-6">
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-5.jpg') ?>);"></div>
-        			<div class="desc pl-3">
-	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Hawaiian Special</span></h3>
-	        				<span class="price">$49.91</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-	        		</div>
-        		</div>
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-6.jpg') ?>);"></div>
-        			<div class="desc pl-3">
-	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Ultimate Overload</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-	        		</div>
-        		</div>
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-7.jpg') ?>);"></div>
-        			<div class="desc pl-3">
-	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Bacon Pizza</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-	        		</div>
-        		</div>
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-8.jpg') ?>);"></div>
-        			<div class="desc pl-3">
-	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Ham &amp; Pineapple</span></h3>
-	        				<span class="price">$20.00</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
-	        			</div>
-	        		</div>
-        		</div>
-        	</div>
-        </div>
+        	
     	</div>
     </section>
 
@@ -235,39 +139,32 @@
 
 		              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
 		              	<div class="row">
-		              		<div class="col-md-4 text-center">
+		              		 <!-- DISPLAY MENUS POST TYPES -->
+						<?php
+							$homepageEvents = new WP_Query(array(
+								'posts_per_page' => 3,
+								'post_type' => 'menus',
+								/*'meta_key' => 'price',
+ 								'orderby' => 'meta_value_num',*/
+								'orderby' => 'title',
+								'order' => 'ASC'
+
+							));
+							while($homepageEvents->have_posts()){
+								$homepageEvents->the_post();?>
+								<div class="col-md-4 text-center">
 		              			<div class="menu-wrap">
-		              				<a href="#" class="menu-img img mb-4" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-1.jpg') ?>);"></a>
+		              				<a href="<?php the_permalink();?>" class="menu-img img mb-4" style="background-image: url(<?php the_post_thumbnail_url('menusLandscape'); ?>);"></a>
 		              				<div class="text">
-		              					<h3><a href="#">Itallian Pizza</a></h3>
-		              					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-		              					<p class="price"><span>$2.90</span></p>
+		              					<h3><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h3>
+		              					<p><?php echo wp_trim_words(get_the_content(),18); ?></p>
+		              					<p class="price"><span>$<?php the_field('price');?></span></p>
 		              					<p><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></p>
 		              				</div>
 		              			</div>
 		              		</div>
-		              		<div class="col-md-4 text-center">
-		              			<div class="menu-wrap">
-		              				<a href="#" class="menu-img img mb-4" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-2.jpg') ?>);"></a>
-		              				<div class="text">
-		              					<h3><a href="#">Itallian Pizza</a></h3>
-		              					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-		              					<p class="price"><span>$2.90</span></p>
-		              					<p><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></p>
-		              				</div>
-		              			</div>
-		              		</div>
-		              		<div class="col-md-4 text-center">
-		              			<div class="menu-wrap">
-		              				<a href="#" class="menu-img img mb-4" style="background-image: url(<?php echo get_theme_file_uri('images/pizza-3.jpg') ?>);"></a>
-		              				<div class="text">
-		              					<h3><a href="#">Itallian Pizza</a></h3>
-		              					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-		              					<p class="price"><span>$2.90</span></p>
-		              					<p><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></p>
-		              				</div>
-		              			</div>
-		              		</div>
+							<?php }
+						?> 
 		              	</div>
 		              </div>
 

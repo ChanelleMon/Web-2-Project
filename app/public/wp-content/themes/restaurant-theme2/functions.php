@@ -39,7 +39,14 @@
 
  function restuarant_features(){
   add_theme_support('title-tag');
+  add_theme_support('post-thumbnails');
+ //this tells Wordpress to generate images to 400 px wide, 250 px tall and cropped
+ add_image_size('menusLandscape',1000, 660, true);
+ add_image_size('menusPortrait',1000, 660, true);
   }
 
-  add_action('after_setup_theme', 'restuarant_features')
+  add_action('after_setup_theme', 'restuarant_features');
+
+
+
 ?> 
